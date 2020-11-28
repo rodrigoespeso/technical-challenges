@@ -1,26 +1,25 @@
 package questions;
 
-public class Node {
-    String operator;
-    int value;
+import java.util.function.BinaryOperator;
+
+public class Node{
+    BinaryOperator<Integer> operator;
+    Integer value;
     Node leftNode;
     Node rightNode;
 
-    public int calculate() { // interfaz, pasando function. Strategy pattern
-        if ("+".equals(operator)) {
-            return leftNode.calculate()+rightNode.calculate();
-        }
-        if ("*".equals(operator)) {
-            return leftNode.calculate()*rightNode.calculate();
+    public int calculate() {
+        if (operator != null) {
+            return operator.apply(leftNode.calculate(), rightNode.calculate());
         }
         return value;
     }
 
-    public String getOperator() {
+    public BinaryOperator<Integer> getOperator() {
         return operator;
     }
 
-    public void setOperator(String operator) {
+    public void setOperator(BinaryOperator<Integer> operator) {
         this.operator = operator;
     }
 
@@ -40,16 +39,16 @@ public class Node {
         this.rightNode = rightNode;
     }
 
-    public Node(String operator, int value) {
+    public Node(BinaryOperator<Integer> operator, int value) {
         this.operator = operator;
         this.value = value;
     }
 
-    public int getValue() {
+    public Integer getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
 }

@@ -1,5 +1,6 @@
 package questions;
 
+import com.sun.org.apache.xpath.internal.operations.Plus;
 
 /*
     IMPORTANT:
@@ -24,7 +25,7 @@ public class Calculator {
 
     public void run() {
         // 2 + 3 * 4
-        Node times = new Node("*",0);
+        Node times = new Node(Operations.product,0);
         Node three = new Node(null, 3);
         Node four = new Node(null, 4);
 
@@ -34,7 +35,7 @@ public class Calculator {
 
         // then 2 + result above
         Node two = new Node(null, 2);
-        Node plus = new Node("+",0);
+        Node plus = new Node(Operations.addition,0);
 
         plus.setLeftNode(two);
         plus.setRightNode(times);

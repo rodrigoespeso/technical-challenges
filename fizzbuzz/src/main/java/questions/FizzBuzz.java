@@ -1,5 +1,11 @@
 package questions;
 
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 /*
     IMPORTANT:
 	The aim of this exercise is to showcase your coding skills. Please do not think that we expect you to deliver the minnimun ammount of code required for this exercise to work.
@@ -16,6 +22,28 @@ package questions;
 public class FizzBuzz {
 
     public static void main(String... args) {
+    	
+    	List<String> list = listNumbersFizzesAndBuzzes();
+    	
+    	System.out.println(list);
 
     }
+
+	public static List<String> listNumbersFizzesAndBuzzes() {
+		Predicate<Integer> isThreeMultiple = e -> e%3==0;
+    	Predicate<Integer> isFiveMultiple = e -> e%5==0;
+ 
+		return IntStream.rangeClosed(1, 100).boxed().map(e -> {
+			if (isThreeMultiple.and(isFiveMultiple).test(e))
+				return "FizzBuzz";
+			if (isThreeMultiple.test(e))
+				return "Fizz";
+			if (isFiveMultiple.test(e))
+				return "Buzz";
+			else
+				return e.toString();
+
+		}).collect(Collectors.toList());
+
+	}
 }

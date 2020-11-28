@@ -6,7 +6,7 @@ public class Node {
     Node leftNode;
     Node rightNode;
 
-    public int calculate() {
+    public int calculate() { // interfaz, pasando function. Strategy pattern
         if ("+".equals(operator)) {
             return leftNode.calculate()+rightNode.calculate();
         }

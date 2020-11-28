@@ -1,9 +1,7 @@
 package questions;
 
-public class Car {
+import questions.interfaces.EarthVehicule;
 
-    public void drive() {
-        System.out.println("I'm driving like a car");
-    }
+public class Car implements EarthVehicule{
 
 }

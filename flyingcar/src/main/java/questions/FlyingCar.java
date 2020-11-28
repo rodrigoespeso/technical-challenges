@@ -1,5 +1,7 @@
 package questions;
 
+import questions.interfaces.AirVehicule;
+import questions.interfaces.EarthVehicule;
 
 /*
     IMPORTANT:
@@ -17,5 +19,10 @@ package questions;
     The FlyingCar should drive exactly like a Car drives, without copy-and-pasting the drive method.
 
  */
-public class FlyingCar {
+public class FlyingCar implements EarthVehicule, AirVehicule{
+	
+	public void showInfo() {
+		System.out.println("I have 4 wheels and 2 wings");
+	}
+	
 }

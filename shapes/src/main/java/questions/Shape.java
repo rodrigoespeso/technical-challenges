@@ -1,3 +1,4 @@
+package questions;
 
 /*
     IMPORTANT:
@@ -16,6 +17,6 @@
     Design the class structure to support this.
 
  */
-public abstract class Shape {
-    abstract void draw();
+public interface Shape {
+    void draw();
 }

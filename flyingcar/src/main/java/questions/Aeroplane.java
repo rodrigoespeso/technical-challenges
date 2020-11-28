@@ -1,8 +1,7 @@
 package questions;
 
-public class Aeroplane {
+import questions.interfaces.AirVehicule;
 
-    public void fly() {
-        System.out.println("I'm flying like and aeroplane");
-    }
+public class Aeroplane implements AirVehicule{
+	
 }

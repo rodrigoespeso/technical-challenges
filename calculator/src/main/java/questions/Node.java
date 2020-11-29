@@ -8,6 +8,8 @@ public class Node{
     Node leftNode;
     Node rightNode;
     
+    public Node() {}
+    
     public Node(BinaryOperator<Integer> operator, int value) {
     	this.operator = operator;
     	this.value = value;
@@ -21,6 +23,10 @@ public class Node{
     public Node(BinaryOperator<Integer> operator) {
     	this.operator = operator;
     	this.value = 0;
+    }
+    
+    public Node(Node leftNode) {
+    	this.leftNode = leftNode;
     }
     
     public Node(Node leftNode, Node rightNode) {
@@ -43,6 +49,16 @@ public class Node{
         return new Node(value);
     }
 
+	public Node addLeft(Integer i) {
+		this.leftNode = new Node(i);
+		return this;
+	}
+	
+	public Node addRight(Integer i) {
+		this.rightNode = new Node(i);
+		return this;
+	}
+	
     public BinaryOperator<Integer> getOperator() {
         return operator;
     }
@@ -79,4 +95,13 @@ public class Node{
     public String toString() {
     	return String.valueOf(value);
     }
+
+	public Node operate(BinaryOperator<Integer> operator) {
+        this.operator = operator;
+        return new Node(calculate(), null);
+	}
+	
+	public Integer getResult() {
+		return getLeftNode().getValue();
+	}
 }

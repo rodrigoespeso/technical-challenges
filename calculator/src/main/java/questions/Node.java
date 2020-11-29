@@ -3,26 +3,25 @@ package questions;
 import java.util.function.BinaryOperator;
 
 public class Node{
-    BinaryOperator<Integer> operator;
-    Integer value;
+    BinaryOperator<Double> operator;
+    Double value;
     Node leftNode;
     Node rightNode;
     
     public Node() {}
     
-    public Node(BinaryOperator<Integer> operator, int value) {
+    public Node(BinaryOperator<Double> operator, Double value) {
     	this.operator = operator;
     	this.value = value;
     }
     
-    public Node(int value) {
+    public Node(Double value) {
     	this.operator = null;
     	this.value = value;
     }
     
-    public Node(BinaryOperator<Integer> operator) {
+    public Node(BinaryOperator<Double> operator) {
     	this.operator = operator;
-    	this.value = 0;
     }
     
     public Node(Node leftNode) {
@@ -34,9 +33,8 @@ public class Node{
     	this.rightNode = rightNode;
     }
     
-    public Node(BinaryOperator<Integer> operator, Node leftNode, Node rightNode) {
+    public Node(BinaryOperator<Double> operator, Node leftNode, Node rightNode) {
 		this.operator = operator;
-		this.value = 0;
 		this.leftNode = leftNode;
 		this.rightNode = rightNode;
 	}
@@ -48,22 +46,54 @@ public class Node{
         }
         return new Node(value);
     }
-
-	public Node addLeft(Integer i) {
+	
+	/**
+	 * Set the left node with a new node from given Double
+	 * @param i The {@link Double} value
+	 * @return This node
+	 */
+	public Node addLeft(Double i) {
 		this.leftNode = new Node(i);
 		return this;
 	}
 	
-	public Node addRight(Integer i) {
+	/**
+	 * Set the right node with a new node from given Double
+	 * @param i The {@link Double} value
+	 * @return This node
+	 */
+	public Node addRight(Double i) {
 		this.rightNode = new Node(i);
 		return this;
 	}
 	
-    public BinaryOperator<Integer> getOperator() {
+	/**
+	 * Set this operator with the given one, performs operation and return new node.
+	 * The result of the operation is set to the left node of the returned one.
+	 * 
+	 * @param operator A {@link BiFunction} predefined operation
+	 * @return New Node with he calculated value
+	 */
+	public Node operate(BinaryOperator<Double> operator) {
+		this.operator = operator;
+		return new Node(calculate(), null);
+	}
+	
+	/**
+	 * The final result of the operation chaining will be store as the value of the
+	 * left node.
+	 * 
+	 * @return The {@link Double} value.
+	 */
+	public Double getResult() {
+		return getLeftNode().getValue();
+	}
+	
+    public BinaryOperator<Double> getOperator() {
         return operator;
     }
 
-    public void setOperator(BinaryOperator<Integer> operator) {
+    public void setOperator(BinaryOperator<Double> operator) {
         this.operator = operator;
     }
 
@@ -83,25 +113,16 @@ public class Node{
         this.rightNode = rightNode;
     }
 
-    public Integer getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(Double value) {
         this.value = value;
     }
-    
-    @Override
-    public String toString() {
-    	return String.valueOf(value);
-    }
-
-	public Node operate(BinaryOperator<Integer> operator) {
-        this.operator = operator;
-        return new Node(calculate(), null);
-	}
 	
-	public Integer getResult() {
-		return getLeftNode().getValue();
+	@Override
+	public String toString() {
+		return String.valueOf(value);
 	}
 }

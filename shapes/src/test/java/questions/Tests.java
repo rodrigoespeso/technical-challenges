@@ -128,6 +128,5 @@ public class Tests {
 		assertEquals("RECTANGLE DRAWING with line thickness: 5 with colored border: RED", linedRectangle.draw());
 
 	}
-
 	
 }

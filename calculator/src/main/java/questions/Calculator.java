@@ -25,17 +25,17 @@ public class Calculator {
 
     public void run() {
         // 2 + 3 * 4
-        Node times = new Node(CommonOperations.product,0);
-        Node three = new Node(null, 3);
-        Node four = new Node(null, 4);
+        Node times = new Node(CommonOperations.product, 0d);
+        Node three = new Node(null, 3d);
+        Node four = new Node(null, 4d);
 
         // first 3 * 4
         times.setLeftNode(three);
         times.setRightNode(four);
 
         // then 2 + result above
-        Node two = new Node(null, 2);
-        Node plus = new Node(CommonOperations.addition,0);
+        Node two = new Node(null, 2d);
+        Node plus = new Node(CommonOperations.addition, 0d);
 
         plus.setLeftNode(two);
         plus.setRightNode(times);

@@ -13,7 +13,7 @@ public class Tests {
 	
 	@Test
 	public void listNumbersFizzesAndBuzzes_whenInitIsOne_andEndIs100() {
-		
+		// Given/Then
 		List<String> list = FizzBuzz.listNumbersFizzesAndBuzzes(1, 100);
 		       
 		assertEquals("Fizz", list.get(2));

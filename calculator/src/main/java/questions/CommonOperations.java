@@ -5,8 +5,8 @@ import java.util.function.BinaryOperator;
 public interface CommonOperations{
 	
 	// Addition
-	final static BinaryOperator<Integer> addition = (a, b) -> a+b;
+	final static BinaryOperator<Double> addition = (a, b) -> a+b;
 	
 	// Product
-	final static BinaryOperator<Integer> product = (a, b) -> a*b;
+	final static BinaryOperator<Double> product = (a, b) -> a*b;
 }

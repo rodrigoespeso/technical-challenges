@@ -12,8 +12,8 @@ public class ShapeDecorator implements Shape{
 	}
 
 	@Override
-	public void draw() {
-		System.out.println("I'm drawing myself...");
+	public String draw() {
+		return "Drawing don't know what yet...";
 	}
 
 }

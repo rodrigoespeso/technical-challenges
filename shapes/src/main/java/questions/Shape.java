@@ -18,5 +18,5 @@ package questions;
 
  */
 public interface Shape {
-    void draw();
+    String draw();
 }

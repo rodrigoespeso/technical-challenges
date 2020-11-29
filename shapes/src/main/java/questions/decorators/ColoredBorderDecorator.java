@@ -13,9 +13,9 @@ public class ColoredBorderDecorator extends ShapeDecorator{
 	}
 
 	@Override
-	public void draw() {
-		decoratedShape.draw();
-		System.out.println("Drew with colored border: "+border);
+	public String draw() {
+		return decoratedShape.draw() + " with colored border: "+border;
+		
 	}
 
 }

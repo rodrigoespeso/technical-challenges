@@ -12,10 +12,8 @@ public class LineDecorator extends ShapeDecorator{
 	}
 
 	@Override
-	public void draw() {
-		decoratedShape.draw();
-		System.out.println("Drew with line thickness: "+thickness);
-		
+	public String draw() {
+		return decoratedShape.draw() + " with line thickness: "+thickness;
 	}
 
 }

@@ -21,8 +21,8 @@ import questions.interfaces.EarthVehicule;
  */
 public class FlyingCar implements EarthVehicule, AirVehicule{
 	
-	public void showInfo() {
-		System.out.println("I have 4 wheels and 2 wings");
+	public String showInfo() {
+		return "I have 4 wheels and 2 wings";
 	}
 	
 }

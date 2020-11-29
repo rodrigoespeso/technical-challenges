@@ -7,12 +7,40 @@ public class Node{
     Integer value;
     Node leftNode;
     Node rightNode;
+    
+    public Node(BinaryOperator<Integer> operator, int value) {
+    	this.operator = operator;
+    	this.value = value;
+    }
+    
+    public Node(int value) {
+    	this.operator = null;
+    	this.value = value;
+    }
+    
+    public Node(BinaryOperator<Integer> operator) {
+    	this.operator = operator;
+    	this.value = 0;
+    }
+    
+    public Node(Node leftNode, Node rightNode) {
+    	this.leftNode = leftNode;
+    	this.rightNode = rightNode;
+    }
+    
+    public Node(BinaryOperator<Integer> operator, Node leftNode, Node rightNode) {
+		this.operator = operator;
+		this.value = 0;
+		this.leftNode = leftNode;
+		this.rightNode = rightNode;
+	}
 
-    public int calculate() {
-        if (operator != null) {
-            return operator.apply(leftNode.calculate(), rightNode.calculate());
+	public Node calculate() {
+        if (null != operator && null != leftNode && null != rightNode) {
+            return new Node(operator.apply(leftNode.calculate().getValue(), 
+            		rightNode.calculate().getValue()));
         }
-        return value;
+        return new Node(value);
     }
 
     public BinaryOperator<Integer> getOperator() {
@@ -39,16 +67,16 @@ public class Node{
         this.rightNode = rightNode;
     }
 
-    public Node(BinaryOperator<Integer> operator, int value) {
-        this.operator = operator;
-        this.value = value;
-    }
-
     public Integer getValue() {
         return value;
     }
 
     public void setValue(Integer value) {
         this.value = value;
+    }
+    
+    @Override
+    public String toString() {
+    	return String.valueOf(value);
     }
 }

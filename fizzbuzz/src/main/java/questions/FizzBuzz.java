@@ -23,17 +23,17 @@ public class FizzBuzz {
 
     public static void main(String... args) {
     	
-    	List<String> list = listNumbersFizzesAndBuzzes();
+    	List<String> list = listNumbersFizzesAndBuzzes(1, 100);
     	
     	System.out.println(list);
 
     }
 
-	public static List<String> listNumbersFizzesAndBuzzes() {
+	public static List<String> listNumbersFizzesAndBuzzes(int init, int end) {
 		Predicate<Integer> isThreeMultiple = e -> e%3==0;
     	Predicate<Integer> isFiveMultiple = e -> e%5==0;
  
-		return IntStream.rangeClosed(1, 100).boxed().map(e -> {
+		return IntStream.rangeClosed(init, end).boxed().map(e -> {
 			if (isThreeMultiple.and(isFiveMultiple).test(e))
 				return "FizzBuzz";
 			if (isThreeMultiple.test(e))

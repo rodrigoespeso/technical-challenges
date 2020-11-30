@@ -1,7 +1,5 @@
 package questions;
 
-import com.sun.org.apache.xpath.internal.operations.Plus;
-
 /*
     IMPORTANT:
 	The aim of this exercise is to showcase your coding skills. Please do not think that we expect you to deliver the minnimun ammount of code required for this exercise to work.
